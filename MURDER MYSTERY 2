@@ -390,15 +390,23 @@ local function AddBillboard(player)
     textLabel.BackgroundTransparency = 1;
     textLabel.Size = UDim2.fromScale(1,1);
 
-    billboard.Enabled = false
+    if getgenv().AllEsp then
+        billboard.Enabled = true
+    end
     repeat
         wait()
         pcall(function()
             billboard.Adornee = player.Character.Head;
             if player.Character:FindFirstChild("Knife") or player.Backpack:FindFirstChild("Knife") then
                 textLabel.TextColor3 = Color3.new(1,0,0);
+                if not billboard.Enabled and getgenv().MurderEsp then
+                    billboard.Enabled = true
+                end
             elseif player.Character:FindFirstChild("Gun") or player.Backpack:FindFirstChild("Gun") then
                 textLabel.TextColor3 = Color3.new(0,0,1);
+                if not billboard.Enabled and getgenv().SheriffEsp then
+                    billboard.Enabled = true
+                end
             else
                 textLabel.TextColor3 = Color3.new(0,1,0);
             end;
