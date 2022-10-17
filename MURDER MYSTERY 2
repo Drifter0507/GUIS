@@ -382,6 +382,7 @@ local function AddBillboard(player)
     billboard.AlwaysOnTop = true;
     billboard.Size = UDim2.fromOffset(200,50);
     billboard.ExtentsOffset = Vector3.new(0,3,0);
+    billboard.Enabled = false
 
     local textLabel = Instance.new("TextLabel",billboard);
     textLabel.TextSize = 20;
